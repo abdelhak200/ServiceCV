@@ -26,15 +26,6 @@ public class ResumeController {
  
     @Autowired
     ResumeService resumeService;  
- 
-    @RequestMapping(value = "/resume/", method = RequestMethod.GET)
-    public ResponseEntity<List<Resume>> listAllResumes() {
-        List<Resume> resumes = resumeService.findAllResumes();
-        if(resumes.isEmpty()){
-            return new ResponseEntity<List<Resume>>(HttpStatus.NO_CONTENT);
-            }
-        return new ResponseEntity<List<Resume>>(resumes, HttpStatus.OK);
-    }
     
     @RequestMapping(value = "/resume/", method = RequestMethod.POST)
     public ResponseEntity<Void> createResume(@RequestBody Resume resume, UriComponentsBuilder ucBuilder) {
